@@ -1,0 +1,19 @@
+{
+  "name": "reactjs_training",
+  "version": "1.0.0",
+  "description": "React EPAM training",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyskin/reactjs_training.git"
+  },
+  "author": "Andrey Godlevskiy (Andrei Hadleuski)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyskin/reactjs_training/issues"
+  },
+  "homepage": "https://github.com/andyskin/reactjs_training#readme"
+}
