@@ -4,7 +4,8 @@
   "description": "React EPAM training",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "webpack",
+    "start": "nodemon index.js --exec \"node -r babel-register\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,20 @@
   "bugs": {
     "url": "https://github.com/andyskin/reactjs_training/issues"
   },
-  "homepage": "https://github.com/andyskin/reactjs_training#readme"
+  "homepage": "https://github.com/andyskin/reactjs_training#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^3.5.5",
+    "webpack-node-externals": "^1.6.0"
+  }
 }
