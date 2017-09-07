@@ -4,8 +4,8 @@
   "description": "React EPAM training",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
-    "start": "nodemon index.js --exec \"node -r babel-register\""
+    "production": "webpack -p",
+    "start": "nodemon ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "nodemon": "^1.11.0",
-    "webpack": "^3.5.5",
-    "webpack-node-externals": "^1.6.0"
+    "webpack": "^3.5.5"
   }
 }
