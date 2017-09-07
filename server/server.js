@@ -1,14 +1,15 @@
 const express = require ('express'),
-         path = require('path');
-        // index = require ( '../public/index.html');
+         path = require('path'),
+         createWebpackMiddleware = require('webpack-express-middleware'),
+         config = require('../webpack.config'),
+         compiler = require('webpack')(config);
 
 const app = express(),
-     port = process.env.PORT || 3000;
+      middleware = createWebpackMiddleware (compiler, config);;
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname +'/../public/index.html'));
-});
+middleware(app);
 
-app.listen(port, () => {
-    console.log(`App is running on port ${port}`);
-});
+app.set('port', process.env.PORT || 3000);
+app.set('host', process.env.HOST || '0.0.0.0');
+
+app.listen(app.get('port'), app.get('host'), middleware.listen);
