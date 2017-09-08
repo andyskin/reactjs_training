@@ -4,8 +4,8 @@
   "description": "React EPAM training",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
-    "start": "nodemon ./server/server.js"
+    "start": "node ./server/server.js",
+    "build": "rimraf './dist' && webpack -p"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,7 @@
   "dependencies": {
     "express": "^4.15.4",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "webpack": "^3.5.6"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -31,7 +30,8 @@
     "babel-register": "^6.26.0",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
-    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1",
+    "webpack": "^3.5.6",
     "webpack-express-middleware": "^1.2.1"
   }
 }
