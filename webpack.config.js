@@ -3,6 +3,7 @@ const htmlPlugin = require('html-webpack-plugin'),
             path = require('path');
          
 const config = {
+    devtool: 'cheap-source-map',
     entry: {
         app: './client/index.js',
         vendor: ['react', 'react-dom']
