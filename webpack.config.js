@@ -1,4 +1,5 @@
 const htmlPlugin = require('html-webpack-plugin'),
+      copyPlugin = require('copy-webpack-plugin'),
          webpack = require('webpack'),
             path = require('path');
          
@@ -24,12 +25,23 @@ const config = {
                 }
             },
             {
-                test: [/\.png$/, /\.jpg$/, /\.svg$/],
-                loader: 'url-loader'
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true,
+                            sourceMap: true
+                        }
+                    }
+                ]
             },
             {
-                test: /\.css$/,
-                loader: ['style-loader', 'css-loader']
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                loader: 'file-loader'
             },
             {
                 test: /\.html$/,
@@ -41,7 +53,6 @@ const config = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            filename: 'vendor.js',
             chunks: ['vendor', 'app']
         }),
 
@@ -54,7 +65,11 @@ const config = {
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
-        })
+        }),
+
+        new copyPlugin([
+            { from: 'public' }
+        ])
     ]
 };
 
@@ -62,6 +77,7 @@ if (process.env.NODE_ENV === 'production') {
     config.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: {
+                warnings: false,
                 screw_ie8: true
             }
         })

@@ -1,0 +1,8 @@
+.button {
+    padding: 5px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    min-width: 50px;
+}

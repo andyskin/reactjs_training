@@ -1,0 +1,34 @@
+.header {
+    min-height: 250px;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ), url('../../../public/img/header.jpg');
+    background-position-y: 22%;
+    color: var(--main-color);
+
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: ". title ."
+                         ". tagline ."
+                         ". search ."
+                         ". search .";
+}
+
+.header__title {
+    grid-area: title;
+    align-self: center;
+    color: var(--netflix-color);
+    font-size: larger;
+    font-weight: bold;
+}
+
+.header__tagline{ 
+    grid-area: tagline;
+    font-weight: bold;
+}
+
+.header__searchBar {
+    grid-area: search;
+}
