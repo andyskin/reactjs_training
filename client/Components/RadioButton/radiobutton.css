@@ -13,3 +13,9 @@
 .radioBtn__input:checked ~ .radioBtn__label {
     background-color: var(--netflix-color);
 }
+
+@media all and (max-width: 480px) {
+    .radioBtn__label {
+        padding: 3px;
+    }
+}

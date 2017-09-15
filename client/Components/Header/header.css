@@ -1,34 +1,43 @@
 .header {
-    min-height: 250px;
+    display: grid;
+    align-items: center;
     background-image: linear-gradient(
-      rgba(0, 0, 0, 0.7), 
-      rgba(0, 0, 0, 0.7)
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
     ), url('../../../public/img/header.jpg');
     background-position-y: 22%;
     color: var(--main-color);
+}
 
-    display: grid;
-    grid-template-rows: 2fr 1fr 1fr 1fr;
+.mainHeader {
+    height: 200px;
+    padding-bottom: 10px;
+    grid-template-rows: 2fr 1fr auto;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: ". title ."
+    grid-template-areas: ". logo ."
                          ". tagline ."
-                         ". search ."
                          ". search .";
 }
 
-.header__title {
-    grid-area: title;
-    align-self: center;
-    color: var(--netflix-color);
-    font-size: larger;
-    font-weight: bold;
+.mainHeader__logo {
+    grid-area: logo;
 }
 
-.header__tagline{ 
+.mainHeader__tagline{ 
     grid-area: tagline;
     font-weight: bold;
 }
 
-.header__searchBar {
+.mainHeader__searchBar {
     grid-area: search;
+}
+
+@media all and (max-width: 480px) {
+    .mainHeader {
+        height: 150px;
+        grid-template-rows: 2fr 3fr;
+        grid-template-columns: 0.5fr 4fr 4fr 0.5fr;
+        grid-template-areas: ". logo tagline ."
+                             ". search search .";
+    }
 }
