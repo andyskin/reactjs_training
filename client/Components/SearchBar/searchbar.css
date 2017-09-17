@@ -28,14 +28,3 @@
     color: #FFF;
     font-size: larger;
 }
-
-@media all and (max-width: 620px) {
-    .searchBar__controls {
-        justify-content: space-between;
-    }
-
-    .searchBar__controls__radio:first-child,
-    .searchBar__button {
-        margin: 0;
-    }
-}
