@@ -29,7 +29,7 @@
     font-size: larger;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 620px) {
     .searchBar__controls {
         justify-content: space-between;
     }

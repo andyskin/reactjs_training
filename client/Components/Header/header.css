@@ -1,4 +1,5 @@
 .header {
+    padding-bottom: 10px;
     display: grid;
     align-items: center;
     background-image: linear-gradient(
@@ -11,7 +12,6 @@
 
 .mainHeader {
     height: 200px;
-    padding-bottom: 10px;
     grid-template-rows: 2fr 1fr auto;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: ". logo ."
@@ -23,7 +23,7 @@
     grid-area: logo;
 }
 
-.mainHeader__tagline{ 
+.mainHeader__tagline { 
     grid-area: tagline;
     font-weight: bold;
 }
@@ -32,12 +32,16 @@
     grid-area: search;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 850px) {
     .mainHeader {
         height: 150px;
         grid-template-rows: 2fr 3fr;
         grid-template-columns: 0.5fr 4fr 4fr 0.5fr;
         grid-template-areas: ". logo tagline ."
                              ". search search .";
+    }
+
+    .mainHeader__tagline {
+        justify-self: right;
     }
 }

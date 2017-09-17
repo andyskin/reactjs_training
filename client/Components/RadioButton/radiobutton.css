@@ -14,7 +14,7 @@
     background-color: var(--netflix-color);
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 620px) {
     .radioBtn__label {
         padding: 3px;
     }
