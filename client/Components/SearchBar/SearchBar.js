@@ -1,5 +1,4 @@
 import React from 'react';
-import RadioButton from '../RadioButton/RadioButton';
 import RadioGroup from '../RadioGroup/RadioGroup';
 import Button from '../Button/Button';
 import styles from './searchbar.css';

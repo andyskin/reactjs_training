@@ -12,14 +12,15 @@ export default class App extends React.Component {
         const page = "main";
         const headerClass = (page === "main") ? "mainHeader" : "filmHeader";
         const headerChildren = [];
+
         if (page === "main") {
-            headerChildren.push(<Logo class="mainHeader__logo" />);
-            headerChildren.push(<span className="mainHeader__tagline">FIND YOUR MOVIE</span>);
-            headerChildren.push(<SearchBar class="mainHeader__searchBar" />);
+            headerChildren.push(<Logo class="mainHeader__logo" key="logo" />);
+            headerChildren.push(<span className="mainHeader__tagline" key="tagline">FIND YOUR MOVIE</span>);
+            headerChildren.push(<SearchBar class="mainHeader__searchBar" key="searchbar" />);
         } else {
-            headerChildren.push(<Logo class="filmHeader__logo" />);
-            headerChildren.push(<Button className="filmHeader__button" />);
-            headerChildren.push(<MovieInfo />);
+            // headerChildren.push(<Logo class="filmHeader__logo" />);
+            // headerChildren.push(<Button className="filmHeader__button" />);
+            // headerChildren.push(<MovieInfo />);
         }
 
         return (

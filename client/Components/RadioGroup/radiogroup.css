@@ -4,6 +4,28 @@
     justify-content: space-between;
 }
 
-.radioGrp__radioBtn:first-child {
+.radioGrp__label {
+    display: inline-block;
+    padding: 3px 5px;
+    background-color: gray;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.radioGrp__label:first-child {
     margin-right: 10px;
+}
+
+.radioGrp__input {
+    display: none;
+}
+
+.radioGrp__input:checked ~ .radioGrp__label {
+    background-color: var(--netflix-color);
+}
+
+@media all and (max-width: 620px) {
+    .radioGrp__label {
+        padding: 3px;
+    }
 }
