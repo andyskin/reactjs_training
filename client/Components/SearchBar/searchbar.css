@@ -8,18 +8,18 @@
 .searchBar__controls {
     display: flex;
     align-items: center;
-}
-
-.searchBar__controls__radio:first-child {
-    margin-right: 10px;
+    justify-content: space-between;
 }
 
 .searchBar__button {
-    margin-left: auto;
     width: 150px;
     background-color: var(--netflix-color);
     color: var(--main-color);
 }
+
+/* .searchBar__radioGrp {
+
+} */
 
 .searchTerm {
     border: 0;

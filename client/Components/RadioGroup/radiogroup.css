@@ -1,0 +1,9 @@
+.radioGrp {
+    min-width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.radioGrp__radioBtn:first-child {
+    margin-right: 10px;
+}
