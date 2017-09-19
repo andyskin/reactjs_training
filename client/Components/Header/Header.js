@@ -1,6 +1,6 @@
 import React from 'react';
-
-import headerStyles from './header.css';
+import styles from './header.css';
+import filmStyles from './filmHeader.css';
 
 class Header extends React.Component {
     constructor(props) {

@@ -1,0 +1,38 @@
+
+.filmHeader {
+    grid-template-rows: 1fr 4fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: ". logo button ."
+                         ". info info .";
+}
+
+.filmHeader__logo {
+    grid-area: logo;
+}
+
+.filmHeader__button {
+    grid-area: button;
+}
+
+.filmHeader__info {
+    grid-area: info;
+}
+
+@media all and (max-width: 1366px) {
+    .filmHeader {
+        grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    }
+}
+
+@media all and (max-width: 1080px) {
+    .filmHeader {
+        grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
+    }
+}
+
+@media all and (max-width: 625px) {
+    .filmHeader {
+        grid-template-rows: 1fr 11fr;
+        grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
+    }
+}

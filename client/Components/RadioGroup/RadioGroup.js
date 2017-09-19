@@ -5,7 +5,6 @@ export default class RadioGroup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            radioButtons: props.radioButtons,
             selected: props.radioButtons[0]
         }
         this.toggleRadioButton = this.toggleRadioButton.bind(this);
@@ -14,25 +13,24 @@ export default class RadioGroup extends React.Component {
 
     toggleRadioButton(event) {
         this.setState({
-            selected: event.target.value
+            selected: event.currentTarget.value
         });
-        console.log(this.state.selected);
     }
 
     render() {
-        const { radioButtons } = this.state;
-        const elements = radioButtons.map((btn) => {
-            return <span key={btn}>
-                            <input type="radio"
-                    className="radioGrp__input"
-                    value={btn}
-                    checked={(this.state.selected === btn)}
-                    onChange={this.toggleRadioButton}
-                />
-                <label htmlFor={btn} className="radioGrp__label">
-                {btn}
-
-            </label></span>
+        const elements = this.props.radioButtons.map( (button) => {
+            const labelClass = (this.state.selected === button) ? "radioGrp__label checked" : "radioGrp__label";
+            return ( 
+                <label key={button} className={labelClass}>
+                    <input type="radio"
+                        className="radioGrp__input"
+                        value={button}
+                        checked={this.state.selected === button}
+                        onChange={this.toggleRadioButton}
+                    />
+                    {button}
+                </label>
+            );
         });
 
         return (

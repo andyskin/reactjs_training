@@ -20,7 +20,7 @@
     display: none;
 }
 
-.radioGrp__input:checked ~ .radioGrp__label {
+.checked {
     background-color: var(--netflix-color);
 }
 
