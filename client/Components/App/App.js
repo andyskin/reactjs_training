@@ -10,21 +10,18 @@ import styles from './app.css';
 
 export default class App extends React.Component {
     render() {
-        const page = "film";
+        const page = "films";
         const headerClass = (page === "main") ? "mainHeader" : "filmHeader";
         const headerChildren = [];
 
         if (page === "main") {
-            // headerChildren.push(<Logo class="mainHeader__logo" key="logo" />);
-
-            // headerChildren.push(<span className="mainHeader__tagline" key="tagline">FIND YOUR MOVIE</span>);
-            // headerChildren.push(<SearchBar class="mainHeader__searchBar" key="searchbar" />);
+            headerChildren.push(<Logo class="mainHeader__logo" key="logo" />);
+            headerChildren.push(<span className="mainHeader__tagline" key="tagline">FIND YOUR MOVIE</span>);
+            headerChildren.push(<SearchBar class="mainHeader__searchBar" key="searchbar" />);
         } else {
             headerChildren.push(<Logo class="filmHeader__logo" key="logo" />);
+            headerChildren.push(<Button class="filmHeader__button" title="search" key="button" />);
             headerChildren.push(<MovieInfo class="filmHeader__info" key="movieInfo"/>);
-            // headerChildren.push(<Logo class="filmHeader__logo" key="logo" />);
-            // headerChildren.push(<Button className="filmHeader__button" />);
-            // headerChildren.push(<MovieInfo />);
         }
 
         return (

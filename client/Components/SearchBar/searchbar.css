@@ -12,14 +12,9 @@
 }
 
 .searchBar__button {
-    width: 150px;
     background-color: var(--netflix-color);
     color: var(--main-color);
 }
-
-/* .searchBar__radioGrp {
-
-} */
 
 .searchTerm {
     border: 0;

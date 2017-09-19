@@ -26,8 +26,8 @@ export default class MovieInfo extends React.Component {
                     <p className="movieInfo__description">Weaving together three stories featuring a burger-loving hit man, his philosophical partner and a washed-up boxer, Quentin Tarantino influenced a generation of filmmakers with this crime caper's stylized, over-the-top violence and dark comic spirit.</p>
                 </div>
                 <div className="movieInfo__people">
-                    <p className="movieInfo__director">Quentin Tarantino</p>
-                    <p className="movieInfo__cast">John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis, Harvey Keitel, Tim Roth, Amanda Plummer, Ving Rhames, Eric Stoltz, Maria de Medeiros</p>
+                    <p className="movieInfo__director">Director: Quentin Tarantino</p>
+                    <p className="movieInfo__cast">Cast: John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis, Harvey Keitel, Tim Roth, Amanda Plummer, Ving Rhames, Eric Stoltz, Maria de Medeiros</p>
                 </div>
             </div>
         );

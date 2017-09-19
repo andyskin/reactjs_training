@@ -21,15 +21,18 @@
     grid-area: people;
 }
 
-.movieInfo__title {
+.movieInfo__title,
+.movieInfo__year {
     margin-right: 30px;
+}
+
+.movieInfo__title {
     color: var(--netflix-color);
     font-size: 35px;
     font-weight: bold;
 }
 
 .movieInfo__rating {
-    margin-left: auto;
     border: 1px solid #77c512;
     border-radius: 100%;
     padding: 7px;
@@ -55,7 +58,7 @@
     }
 }
 
-@media all and (max-width: 620px) {
+@media all and (max-width: 625px) {
     .movieInfo {
         grid-template-columns: auto;
         grid-template-areas: "poster"

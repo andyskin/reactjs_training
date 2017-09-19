@@ -11,7 +11,11 @@
 }
 
 .filmHeader__button {
+    width: 135px;
     grid-area: button;
+    justify-self: right;
+    color: var(--netflix-color);
+    background-color: var(--main-color);
 }
 
 .filmHeader__info {
@@ -30,9 +34,15 @@
     }
 }
 
+@media all and (max-width: 750px) { 
+    .filmHeader {
+        grid-template-rows: 1fr 10fr;
+        grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
+    }
+}
+
 @media all and (max-width: 625px) {
     .filmHeader {
-        grid-template-rows: 1fr 11fr;
         grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
     }
 }
