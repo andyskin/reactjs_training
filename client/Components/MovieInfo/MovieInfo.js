@@ -1,15 +1,13 @@
 import React from 'react';
+import classNames from 'classNames';
 import styles from './movieinfo.css';
 
 export default class MovieInfo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.infoClass = (props.class) ? `movieInfo ${props.class}` : 'movieInfo';
-    }
-
     render() {
+        const infoClass = classNames('movieInfo', this.props.className);
+
         return (
-            <div className={this.infoClass}>
+            <div className={infoClass}>
                 <div className="movieInfo__poster">
                     <img src="http:\/\/netflixroulette.net\/api\/posters\/880640.jpg" />
                 </div>

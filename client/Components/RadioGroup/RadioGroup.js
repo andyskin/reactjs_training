@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classNames';
 import styles from './radiogroup.css';
 
 export default class RadioGroup extends React.Component {
@@ -8,7 +9,6 @@ export default class RadioGroup extends React.Component {
             selected: props.radioButtons[0]
         }
         this.toggleRadioButton = this.toggleRadioButton.bind(this);
-        this.radioGrpClass = (props.class) ? `radioGrp ${props.class}` : "radioGrp";
     }
 
     toggleRadioButton(event) {
@@ -18,8 +18,14 @@ export default class RadioGroup extends React.Component {
     }
 
     render() {
+        const radioGrpClass = classNames('radioGrp', this.props.className);
+
         const elements = this.props.radioButtons.map( (button) => {
-            const labelClass = (this.state.selected === button) ? "radioGrp__label checked" : "radioGrp__label";
+            const labelClass = classNames({
+                radioGrp__label: true,
+                checked: this.state.selected === button
+            });
+
             return ( 
                 <label key={button} className={labelClass}>
                     <input type="radio"
@@ -34,7 +40,7 @@ export default class RadioGroup extends React.Component {
         });
 
         return (
-            <div className="radioGrp">
+            <div className={radioGrpClass}>
                 {elements}
             </div>
         );

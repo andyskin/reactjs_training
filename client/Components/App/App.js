@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
@@ -10,27 +11,26 @@ import styles from './app.css';
 
 export default class App extends React.Component {
     render() {
-        const page = "films";
-        const headerClass = (page === "main") ? "mainHeader" : "filmHeader";
-        const headerChildren = [];
-
-        if (page === "main") {
-            headerChildren.push(<Logo class="mainHeader__logo" key="logo" />);
-            headerChildren.push(<span className="mainHeader__tagline" key="tagline">FIND YOUR MOVIE</span>);
-            headerChildren.push(<SearchBar class="mainHeader__searchBar" key="searchbar" />);
-        } else {
-            headerChildren.push(<Logo class="filmHeader__logo" key="logo" />);
-            headerChildren.push(<Button class="filmHeader__button" title="search" key="button" />);
-            headerChildren.push(<MovieInfo class="filmHeader__info" key="movieInfo"/>);
-        }
-
         return (
-            <div className="app">
-                <Header class={headerClass}>
-                    {headerChildren}
-                </Header>
-                <Main class="app__main" />
-                <Footer class="app__footer" />
+            <div>
+                <Switch>
+                    <Route exact path='/'>
+                        <Header className="mainHeader">
+                            <Logo className="mainHeader__logo" />
+                            <span className="mainHeader__tagline">FIND YOUR MOVIE</span>
+                            <SearchBar className="mainHeader__searchBar" />
+                        </Header>
+                    </Route>
+                    <Route path='/movie/:id'>
+                        <Header className="filmHeader">
+                            <Logo className="filmHeader__logo" />
+                            <Button className="filmHeader__button" title="search" />
+                            <MovieInfo className="filmHeader__info" />
+                        </Header>
+                    </Route>
+                </Switch>
+                <Main className="app__main" />
+                <Footer className="app__footer" />
             </div>
         );
     }

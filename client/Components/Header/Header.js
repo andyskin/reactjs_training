@@ -1,16 +1,14 @@
 import React from 'react';
+import classNames from 'classNames';
 import styles from './header.css';
 import filmStyles from './filmHeader.css';
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.headerClass = (props.class) ? `header ${props.class}` : "header";
-    }
-
     render() {
+        const hdrClass = classNames('header', this.props.className);
+
         return (
-            <header className={this.headerClass}>
+            <header className={hdrClass}>
                 {this.props.children}
             </header>
         );

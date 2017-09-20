@@ -1,13 +1,12 @@
 import React from 'react';
+import classNames from 'classNames';
 import Movie from '../Movie/Movie';
 import styles from './movielist.css';
 
 export default class MovieList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.listClass = (props.class) ? `movieList ${props.class}` : 'movieList';
-    }
     render() {
+        const listClass = classNames('movieList', this.props.className);
+
         const movies = [
             {
                 id: 1,
@@ -35,12 +34,12 @@ export default class MovieList extends React.Component {
         const moviesObjs = [];
         for (let movie of movies) {
             moviesObjs.push(
-                <Movie info={movie} key={movie.id} class="movieList__movie" />
+                <Movie info={movie} key={movie.id} className="movieList__movie" />
             );
         }
 
         return (
-            <div className={this.listClass}>
+            <div className={listClass}>
                 {moviesObjs}
             </div>
         );
