@@ -5,12 +5,9 @@ import styles from './button.css';
 
 const Button = (props) => {
     const btnClass = classNames('button', props.className);
-    const path = (props.className === 'searchBar_button') ? "/search/query": "/";
 
     return (
-        <Link to={path}>
-            <div className={btnClass}>{props.title}</div>
-        </Link>
+        <div className={btnClass}>{props.title}</div>
     );
 }
 

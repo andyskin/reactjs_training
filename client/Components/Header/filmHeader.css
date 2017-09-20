@@ -1,29 +1,32 @@
 .filmHeader {
-    grid-template-rows: 1fr auto;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 7fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: ". logo ."
+                         ". info .";
+}
+
+.filmHeader__logo{
+    grid-area: logo;
+}
+
+.filmHeader__movieInfo {
+    grid-area: info;
 }
 
 @media all and (max-width: 1366px) {
     .filmHeader {
-        grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+        grid-template-columns: 0.5fr 2fr 0.5fr;
     }
 }
 
 @media all and (max-width: 1080px) {
     .filmHeader {
-        grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
+        grid-template-columns: 0.2fr 2fr 0.2fr;
     }
 }
 
 @media all and (max-width: 750px) { 
     .filmHeader {
         grid-template-rows: 1fr 10fr;
-        grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
-    }
-}
-
-@media all and (max-width: 625px) {
-    .filmHeader {
-        grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
     }
 }
