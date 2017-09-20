@@ -3,14 +3,14 @@ import classNames from 'classNames';
 import Logo from '../Logo/Logo';
 import styles from './footer.css';
 
-export default class Footer extends React.Component {
-    render() {
-        const ftrClass = classNames('footer', this.props.className);
+const Footer = (props) => {
+    const ftrClass = classNames('footer', props.className);
 
-        return(
-            <footer className={ftrClass}>
-                <Logo className="footer__logo" />
-            </footer>
-        );
-    }
+    return (
+        <footer className={ftrClass}>
+            <Logo className="footer__logo" />
+        </footer>
+    );
 }
+
+export default Footer;

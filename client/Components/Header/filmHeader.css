@@ -1,25 +1,6 @@
-
 .filmHeader {
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 1fr auto;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: ". logo button ."
-                         ". info info .";
-}
-
-.filmHeader__logo {
-    grid-area: logo;
-}
-
-.filmHeader__button {
-    width: 135px;
-    grid-area: button;
-    justify-self: right;
-    color: var(--netflix-color);
-    background-color: var(--main-color);
-}
-
-.filmHeader__info {
-    grid-area: info;
 }
 
 @media all and (max-width: 1366px) {

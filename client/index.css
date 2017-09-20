@@ -9,3 +9,8 @@ body {
     --main-color: #DCDCDC;
     --netflix-color: #E50813;
 }
+
+a {
+    text-decoration: none;
+    color: #000;
+}

@@ -1,8 +1,12 @@
+.searchBar__tagline {
+    font-weight: bold;
+}
+
 .searchBar__searchTerm {
     width: 100%;
     box-sizing: border-box;
     padding: 10px 0 10px 20px;
-    margin-bottom: 5px;
+    margin: 10px 0;
 }
 
 .searchBar__controls {

@@ -1,5 +1,21 @@
+.logo {
+    display: flex;
+    justify-content: space-between;
+}
+
 .logo__title {
     color: var(--netflix-color);
     font-size: 20px;
     font-weight: bold;
+}
+
+.logo__button {
+    display: none;
+    width: 135px;
+    color: var(--netflix-color);
+    background-color: var(--main-color);
+}
+
+.visible {
+    display: block;
 }
