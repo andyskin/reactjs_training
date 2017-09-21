@@ -15,6 +15,7 @@ export default class RadioGroup extends React.Component {
         this.setState({
             selected: event.currentTarget.value
         });
+        this.props.onUpdate(event.currentTarget.value);
     }
 
     render() {

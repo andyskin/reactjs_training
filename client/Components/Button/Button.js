@@ -4,10 +4,11 @@ import classNames from 'classNames';
 import styles from './button.css';
 
 const Button = (props) => {
-    const btnClass = classNames('button', props.className);
+    const btnClass = classNames('button', props.className),
+        type = props.type || 'button';
 
     return (
-        <div className={btnClass}>{props.title}</div>
+        <button className={btnClass} type={type}>{props.title}</button>
     );
 }
 

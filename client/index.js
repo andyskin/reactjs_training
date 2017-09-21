@@ -11,27 +11,35 @@ import SearchBar from './Components/SearchBar/SearchBar';
 const App = () => {
     return (
         <BrowserRouter>
-            <div>
-                <Switch>
-                    <Route exact path='/'>
+            <Switch>
+                <Route exact path='/'>
+                    <div>
                         <Header className="mainHeader">
                             <SearchBar className="mainHeader__searchBar" />
                         </Header>
-                    </Route>
-                    <Route path='/search/:query'>
+                        <Main className="app__main" />
+                        <Footer className="app__footer" />
+                    </div>
+                </Route>
+                <Route path='/search/:query'>
+                    <div>
                         <Header className="mainHeader">
                             <SearchBar className="mainHeader__searchBar" />
                         </Header>
-                    </Route>
-                    <Route path='/film/:title'>
+                        <Main className="app__main" />
+                        <Footer className="app__footer" />
+                    </div>
+                </Route>
+                <Route path='/film/:title'>
+                    <div>
                         <Header className="filmHeader">
                             <MovieInfo className="filmHeader__movieInfo" />
                         </Header>
-                    </Route>
-                </Switch>
-                <Main className="app__main" />
-                <Footer className="app__footer" />
-            </div>
+                        <Main className="app__main" />
+                        <Footer className="app__footer" />
+                    </div>
+                </Route>
+            </Switch>
         </BrowserRouter>
     );
 };

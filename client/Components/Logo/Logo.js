@@ -8,7 +8,7 @@ const Logo = (props) => {
     const logoClass = classNames('logo', props.className),
         btnClass = classNames({
             logo__button: true,
-            'visible': props.className === 'filmHeader__logo'
+            visible: props.className === 'filmHeader__logo'
         });
 
     return (
