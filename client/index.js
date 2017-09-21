@@ -2,46 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styles from './index.css';
+import App from './Components/App/App';
 import Header from './Components/Header/Header';
 import Main from './Components/Main/Main';
 import Footer from './Components/Footer/Footer';
 import MovieInfo from './Components/MovieInfo/MovieInfo';
 import SearchBar from './Components/SearchBar/SearchBar';
 
-const App = () => {
+const Tool = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path='/'>
-                    <div>
-                        <Header className="mainHeader">
-                            <SearchBar className="mainHeader__searchBar" />
-                        </Header>
-                        <Main className="app__main" />
-                        <Footer className="app__footer" />
-                    </div>
-                </Route>
-                <Route path='/search/:query'>
-                    <div>
-                        <Header className="mainHeader">
-                            <SearchBar className="mainHeader__searchBar" />
-                        </Header>
-                        <Main className="app__main" />
-                        <Footer className="app__footer" />
-                    </div>
-                </Route>
-                <Route path='/film/:title'>
-                    <div>
-                        <Header className="filmHeader">
-                            <MovieInfo className="filmHeader__movieInfo" />
-                        </Header>
-                        <Main className="app__main" />
-                        <Footer className="app__footer" />
-                    </div>
-                </Route>
+                <Route exact path='/' component= {App } />
+                <Route path='/search/:query' component={ App } />
+                <Route path='/film/:title' component={() => (<App headerClass="filmHeader" />)} />
+                <Route component={App} />
             </Switch>
         </BrowserRouter>
     );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Tool />, document.getElementById('app'));
