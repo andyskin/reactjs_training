@@ -1,20 +1,18 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { browserHistory } from 'react-router'
+import { Link, withRouter } from 'react-router-dom';
 import classNames from 'classNames';
 import RadioGroup from '../RadioGroup/RadioGroup';
 import Button from '../Button/Button';
 import styles from './searchbar.css';
 
-export default class SearchBar extends React.Component {
+class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.radioButtons = ['title', 'director'];
 
         this.state = {
             input: '',
-            radio: this.radioButtons[0],
-            redirect: false
+            radio: this.radioButtons[0]
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -28,8 +26,8 @@ export default class SearchBar extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({ redirect: true });
-        console.log(this.context);
+        const query = `${this.state.radio}=${this.state.input}`;
+        this.props.history.push(`/search/${query}`);
     }
 
     handleRadio(value) {
@@ -38,11 +36,6 @@ export default class SearchBar extends React.Component {
 
     render() {
         const formClass = classNames('searchBar', this.props.className);
-
-        if (this.state.redirect) {
-            const query = `${this.state.radio}=${this.state.input}`;
-            return <Redirect to={`search/${query}`} />;
-        }
          
         return(
             <form className={formClass} onSubmit={this.handleSubmit}>
@@ -56,3 +49,5 @@ export default class SearchBar extends React.Component {
         );
     }
 }
+
+export default withRouter(SearchBar);
