@@ -9,7 +9,7 @@ import Footer from './Components/Footer/Footer';
 import MovieInfo from './Components/MovieInfo/MovieInfo';
 import SearchBar from './Components/SearchBar/SearchBar';
 
-const Tool = () => {
+const Index = () => {
     return (
         <BrowserRouter>
             <Switch>
@@ -22,4 +22,4 @@ const Tool = () => {
     );
 };
 
-ReactDOM.render(<Tool />, document.getElementById('app'));
+ReactDOM.render(<Index />, document.getElementById('app'));
