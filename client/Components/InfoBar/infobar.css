@@ -1,0 +1,5 @@
+.infoBar {
+    height: 35px;
+    color: #000;
+    background-color: var(--main-color);
+}

@@ -1,0 +1,39 @@
+.movie {
+    width: 285px;
+    display: grid;
+    grid-template-areas: "poster poster"
+                         "title year"
+                         "genre year";
+    text-decoration: none;
+    color: #000;
+}
+
+.movie__poster {
+    margin-bottom: 20px;
+    height: 400px;
+    width: 285px;
+    grid-area: poster;
+}
+
+.movie__title {
+    margin-bottom: 10px;
+    grid-area: title;
+    text-transform: uppercase;
+}
+
+.movie__genre {
+    grid-area: genre;
+    color: gray;
+    font-size: smaller;
+}
+
+.movie__year {
+    padding: 1px 2px;
+    width: 45px;
+    height: 20px;
+    grid-area: year;
+    border: 1px solid gray;
+    text-align: center;
+    justify-self: right;
+    font-size: small;
+}
