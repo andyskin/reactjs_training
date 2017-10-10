@@ -4,6 +4,7 @@ import styles from './movieinfo.css';
 
 const MovieInfo = (props) => {
     const infoClass = classNames('movieInfo', props.className);
+    console.log(props.params);
 
     return (
         <div className={infoClass}>

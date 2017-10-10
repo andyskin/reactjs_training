@@ -6,9 +6,9 @@ import styles from './movie.css';
 const Movie = (props) => {
     const movieClass = classNames('movie', props.className);
     const { info } = props;
-    console.log(props.info);
+
     return (
-        <Link to={`/film/${info.title}`} className={movieClass}>
+        <Link to={`/film/${info.show_title}`} className={movieClass}>
             <img src={info.poster} className="movie__poster" />
             <span className="movie__title">{info.show_title}</span>
             <span className="movie__genre">{info.category}</span>

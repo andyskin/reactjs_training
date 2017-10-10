@@ -5,7 +5,7 @@ export const fetchMovies = () => {
         axios.get('https://netflixroulette.net/api/api.php?director=Quentin%20Tarantino')
              .then((response) => {
                 dispatch({
-                    type: 'FETCH_MOVIES_FULFILLED',
+                    type: 'FETCH_MOVIES',
                     payload: response.data
                 });
              })
@@ -15,5 +15,12 @@ export const fetchMovies = () => {
                      payload: error
                  });
              })
+    }
+}
+
+export const setCurrentMovie = movie => {
+    return {
+        type: 'SET_CURRENT_MOVIE',
+        movie
     }
 }
