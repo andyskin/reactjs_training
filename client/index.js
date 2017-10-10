@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import moviesApp from './Reducers';
 import styles from './index.css';
 import App from './Components/App/App';
-import Header from './Components/Header/Header';
-import Main from './Components/Main/Main';
-import Footer from './Components/Footer/Footer';
-import MovieInfo from './Components/MovieInfo/MovieInfo';
-import SearchBar from './Components/SearchBar/SearchBar';
+
+const store = compose(applyMiddleware(thunk))(createStore)(moviesApp);
 
 const Index = () => {
     return (
@@ -22,4 +23,9 @@ const Index = () => {
     );
 };
 
-ReactDOM.render(<Index />, document.getElementById('app'));
+ReactDOM.render(
+    <Provider store={store}>
+        <Index />
+    </Provider>,
+    document.getElementById('app')
+);

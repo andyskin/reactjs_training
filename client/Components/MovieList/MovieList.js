@@ -1,47 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchMovies } from '../../Actions';
 import classNames from 'classNames';
 import Movie from '../Movie/Movie';
 import styles from './movielist.css';
 
-const MovieList = (props) => {
-    const listClass = classNames('movieList', props.className);
+// @connect(state => ({
+//     movies: state.movies
+// }))
 
-    const movies = [
-        {
-            id: 1,
-            poster: 'http:\/\/netflixroulette.net\/api\/posters\/70230640.jpg',
-            title: 'Django Unchained',
-            genre: 'Drama',
-            year: 2012
-        },
-        {
-            id: 2,
-            poster: 'http:\/\/netflixroulette.net\/api\/posters\/902003.jpg',
-            title: 'Reservoir Dogs',
-            genre: 'Independent Movies',
-            year: 1992
-        },
-        {
-            id: 3,
-            poster: 'http:\/\/netflixroulette.net\/api\/posters\/880640.jpg',
-            title: 'Pulp Fiction',
-            genre: 'Oscar-winning Movies',
-            year: 1994
-        }
-    ];
-
-    const moviesObjs = [];
-    for (let movie of movies) {
-        moviesObjs.push(
-            <Movie info={movie} key={movie.id} className="movieList__movie" />
-        );
+class MovieList extends React.Component {
+    constructor(props) {
+        super(props);
     }
 
-    return (
-        <div className={listClass}>
-            {moviesObjs}
-        </div>
-    );
+    componentWillMount() {
+        this.props.dispatch(fetchMovies());
+    }
+
+    render() {
+        const listClass = classNames('movieList', this.props.className);
+        const moviesObjs = [];
+        
+        for (let movie of this.props.movies.movies) {
+            moviesObjs.push(
+                <Movie info={movie} key={movie.show_id} className="movieList__movie" />
+            );
+        }
+
+        return (
+            <div className={listClass}>
+                {moviesObjs}
+            </div>
+        );
+    }
 }
 
-export default MovieList;
+export default connect(state => ({ movies: state.movies }))(MovieList);
