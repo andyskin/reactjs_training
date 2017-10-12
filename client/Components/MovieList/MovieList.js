@@ -1,30 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchMovies } from '../../Actions';
+import { setCurrentMovie } from '../../actions';
 import classNames from 'classNames';
 import Movie from '../Movie/Movie';
 import styles from './movielist.css';
 
+const MovieList = (props) => {
+    const listClass = classNames('movieList', props.className);
+    let { movies } = props;
 
-class MovieList extends React.Component {
-    componentWillMount() {
-        this.props.dispatch(fetchMovies());
+    return (
+        <div className={listClass}>
+            {movies.map(movie => (
+                <Movie info={movie} key={movie.show_id} className="movieList__movie" pickMovie={props.pickMovie} />
+            ))}
+        </div>
+    );
+}
+
+const mapStateToProps = (state) => {
+    return {
+        movies: state.movies.items
     }
+};
 
-    render() {
-        const listClass = classNames('movieList', this.props.className);
-        const { movies } = this.props.movies;
-        const movieArray = [];
-
-        for (let movie of movies) {
-            movieArray.push(<Movie info={movie} key={movie.show_id} className="movieList__movie" />);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        pickMovie: (movie) => {
+            dispatch(setCurrentMovie(movie))
         }
-        return (
-            <div className={listClass}>
-                {movieArray}
-            </div>
-        );
     }
 }
 
-export default connect(state => ({ movies: state.movies }))(MovieList);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MovieList);

@@ -8,7 +8,7 @@ const Movie = (props) => {
     const { info } = props;
 
     return (
-        <Link to={`/film/${info.show_title}`} className={movieClass}>
+        <Link to={`/film/${info.show_title}`} className={movieClass} onClick={() => {props.pickMovie(info)}}>
             <img src={info.poster} className="movie__poster" />
             <span className="movie__title">{info.show_title}</span>
             <span className="movie__genre">{info.category}</span>

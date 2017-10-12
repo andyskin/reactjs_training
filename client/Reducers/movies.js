@@ -1,25 +1,25 @@
 const movies = (state = {
-    movies: [],
+    items: [],
     currentMovie: null,
     error: null
 }, action) => {
     switch (action.type) {
-        case 'FETCH_MOVIES': {
+        case 'RECEIVE_MOVIES': {
             return {
                 ...state,
-                movies: action.payload
+                items: action.movies
             }
         }
         case 'FETCH_MOVIES_REJECTED': {
             return {
                 ...state,
-                error: action.payload
+                error: action.error
             }
         }
         case 'SET_CURRENT_MOVIE': 
             return {
                 ...state,
-                currentMovie: action.payload
+                currentMovie: action.movie
             }
         
         default: 

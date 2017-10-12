@@ -1,26 +1,28 @@
 import axios from 'axios';
 
-export const fetchMovies = () => {
-    return (dispatch) => {
-        axios.get('https://netflixroulette.net/api/api.php?director=Quentin%20Tarantino')
-             .then((response) => {
-                dispatch({
-                    type: 'FETCH_MOVIES',
-                    payload: response.data
-                });
-             })
-             .catch((error) => {
-                 dispatch({
-                     type: 'FETCH_MOVIES_REJECTED',
-                     payload: error
-                 });
-             })
-    }
+export const fetchMovies = query => dispatch => {
+    const url = `https://netflixroulette.net/api/api.php?${query}`;
+    
+    return axios.get(url)
+        .then((response) => {
+            dispatch(receiveMovies(response.data));
+        })
+        .catch((error) => {
+            dispatch(fetchError(error));
+        });
 }
 
-export const setCurrentMovie = movie => {
-    return {
-        type: 'SET_CURRENT_MOVIE',
-        movie
-    }
-}
+const receiveMovies = movies => ({
+    type: 'RECEIVE_MOVIES',
+    movies
+})
+
+const fetchError = error => ({
+    type: "FETCH_MOVIES_REJECTED",
+    error
+})
+
+export const setCurrentMovie = movie => ({
+    type: 'SET_CURRENT_MOVIE',
+    movie
+})

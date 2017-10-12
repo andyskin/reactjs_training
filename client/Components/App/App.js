@@ -7,10 +7,10 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const App = (props) => {
     const headerClass = (props.headerClass) ? props.headerClass : 'mainHeader';
-
     const child = (headerClass === 'mainHeader')
                     ? <SearchBar className="mainHeader__searchBar" />
                     : <MovieInfo className="filmHeader__movieInfo" />;
+
     return (
         <div>
             <Header className={headerClass}>

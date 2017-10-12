@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classNames';
 import InfoBar from '../InfoBar/InfoBar';
-// import AllMovies from '../../Containers/AllMovies';
 import MovieList from '../MovieList/MovieList';
 import styles from './main.css';
 
@@ -11,7 +10,7 @@ const Main = (props) => {
     return (
         <main className={mainClass}>
             <InfoBar className="main__info" />
-            <MovieList className="main__movieList"/>
+            <MovieList className="main__movieList" movies={props.movies} setCurrentMovie={props.setCurrentMovie} dispatch={props.dispatch}/>
         </main>
     );
 }
