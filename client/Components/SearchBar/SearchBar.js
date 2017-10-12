@@ -14,8 +14,7 @@ class SearchBar extends React.Component {
 
         this.state = {
             input: '',
-            radio: this.radioButtons[0],
-            redirect: false
+            radio: this.radioButtons[0]
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -34,11 +33,6 @@ class SearchBar extends React.Component {
 
         if (this.state.radio === 'director') 
             this.props.history.push(`/search/${query}`);
-        
-        else 
-            this.setState({
-                redirect: true
-            });
     }
 
     handleRadio(value) {
@@ -47,12 +41,11 @@ class SearchBar extends React.Component {
 
     render() {     
         const formClass = classNames('searchBar', this.props.className);
-        const {redirect} = this.state;
          
         return(
             <form className={formClass} onSubmit={this.handleSubmit}>
-                {redirect && (
-                    <Redirect to={`/film/${this.state.query}`} />
+                {this.props.currentMovie.show_title && (
+                    <Redirect to={`/film/${this.props.currentMovie.show_title}`} />
                 )}
                 <span className="searchBar__tagline">FIND YOUR MOVIE</span>
                 <input type="text" className="searchBar__searchTerm searchTerm" placeholder="What are you looking for?" onChange={this.handleChange}/>
@@ -67,7 +60,7 @@ class SearchBar extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies.items
+        currentMovie: state.movies.currentMovie
     }
 }
 

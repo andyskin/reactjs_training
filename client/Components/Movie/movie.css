@@ -10,8 +10,6 @@
 
 .movie__poster {
     margin-bottom: 20px;
-    height: 400px;
-    width: 285px;
     grid-area: poster;
 }
 

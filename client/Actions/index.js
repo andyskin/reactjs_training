@@ -1,16 +1,40 @@
 import axios from 'axios';
 
-export const fetchMovies = query => dispatch => {
+const makeRequest = (query) => {
     const url = `https://netflixroulette.net/api/api.php?${query}`;
-    
     return axios.get(url)
         .then((response) => {
-            dispatch(receiveMovies(response.data));
+            if (response.data.unit) {
+                dispatch(receiveMovies(new Array(response.data)));
+                dispatch(setCurrentMovie(response.data))
+            }
+            else {
+                dispatch(receiveMovies(new Array(response.data)));
+            }
         })
         .catch((error) => {
             dispatch(fetchError(error));
         });
 }
+
+export const fetchMovies = query => dispatch => {
+    const url = `https://netflixroulette.net/api/api.php?${query}`;
+    
+    return axios.get(url)
+        .then((response) => {
+            if (response.data.unit) {
+                dispatch(receiveMovies(new Array(response.data)));
+                dispatch(setCurrentMovie(response.data))
+            }
+            else {
+                dispatch(receiveMovies(response.data));
+            }
+        })
+        .catch((error) => {
+            dispatch(fetchError(error));
+        });
+}
+
 
 const receiveMovies = movies => ({
     type: 'RECEIVE_MOVIES',

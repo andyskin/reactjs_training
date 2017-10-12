@@ -1,6 +1,6 @@
 const movies = (state = {
     items: [],
-    currentMovie: null,
+    currentMovie: {},
     error: null
 }, action) => {
     switch (action.type) {
