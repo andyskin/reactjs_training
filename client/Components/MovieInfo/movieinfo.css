@@ -27,7 +27,7 @@
 }
 
 .movieInfo__title {
-    color: var(--netflix-color);
+    color: var(--moviedb-color);
     font-size: 35px;
     font-weight: bold;
 }

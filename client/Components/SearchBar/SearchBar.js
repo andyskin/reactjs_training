@@ -10,7 +10,7 @@ import styles from './searchbar.css';
 class SearchBar extends React.Component {
     constructor(props) {
         super(props);
-        this.radioButtons = ['title', 'director'];
+        this.radioButtons = ['movie', 'tv', 'multi'];
 
         this.state = {
             input: '',
@@ -27,12 +27,13 @@ class SearchBar extends React.Component {
     }
 
     handleSubmit(event) {
-        event.preventDefault();        
-        const query = `${this.state.radio}=${this.state.input}`;
-        this.props.fetchMovies(query);
-
-        if (this.state.radio === 'director') 
-            this.props.history.push(`/search/${query}`);
+        event.preventDefault();
+        const data = {
+            genre: this.state.radio,
+            title: this.state.input
+        };
+        this.props.fetchMovies(data);
+        this.props.history.push(`/search/${this.state.radio}?title=${this.state.input}`);
     }
 
     handleRadio(value) {
@@ -44,9 +45,6 @@ class SearchBar extends React.Component {
          
         return(
             <form className={formClass} onSubmit={this.handleSubmit}>
-                {this.props.currentMovie.show_title && (
-                    <Redirect to={`/film/${this.props.currentMovie.show_title}`} />
-                )}
                 <span className="searchBar__tagline">FIND YOUR MOVIE</span>
                 <input type="text" className="searchBar__searchTerm searchTerm" placeholder="What are you looking for?" onChange={this.handleChange}/>
                 <div className="searchBar__controls">

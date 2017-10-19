@@ -1,19 +1,17 @@
 .radioGrp {
     min-width: 100px;
+    width: 185px;
     display: flex;
     justify-content: space-between;
 }
 
 .radioGrp__label {
     display: inline-block;
-    padding: 3px 5px;
+    padding: 5px;
     background-color: gray;
     text-transform: uppercase;
+    font-weight: bolder;
     cursor: pointer;
-}
-
-.radioGrp__label:first-child {
-    margin-right: 10px;
 }
 
 .radioGrp__input {
@@ -21,11 +19,5 @@
 }
 
 .checked {
-    background-color: var(--netflix-color);
-}
-
-@media all and (max-width: 620px) {
-    .radioGrp__label {
-        padding: 3px;
-    }
+    background-color: var(--moviedb-color);
 }

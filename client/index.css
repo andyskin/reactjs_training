@@ -6,8 +6,8 @@ body {
     min-height: 100%;
     min-width: 360px;
     margin: 0;
-    --main-color: #DCDCDC;
-    --netflix-color: #E50813;
+    --main-color: #eae1e1;
+    --moviedb-color: #00a05b;
 }
 
 a {

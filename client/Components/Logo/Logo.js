@@ -15,7 +15,7 @@ const Logo = (props) => {
 
     return (
         <div className={logoClass}>
-            <span className='logo__title'>NetfixRoulette</span>
+            <span className='logo__title'>MovieDB Search</span>
             <Link to="/" className={btnClass} onClick={props.clearCurrentMovie}>
                 <Button className={btnClass} title="search" />
             </Link>

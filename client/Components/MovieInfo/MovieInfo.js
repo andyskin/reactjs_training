@@ -15,7 +15,7 @@ const MovieInfo = (props) => {
             <div className="movieInfo__info">
                 <p>
                     <span className="movieInfo__title">{movie.show_title}</span>
-                    <span className="movieInfo__rating">{movie.rating}</span>
+                    <span className="movieInfo__rating">{movie.vote_average}</span>
                 </p>
                 <span className="movieInfo__genre">{movie.category}</span>
                 <p>

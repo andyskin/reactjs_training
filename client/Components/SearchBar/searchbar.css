@@ -16,13 +16,13 @@
 }
 
 .searchBar__button {
-    background-color: var(--netflix-color);
+    background-color: var(--moviedb-color);
     color: var(--main-color);
 }
 
 .searchTerm {
     border: 0;
-    border-bottom: 2px solid var(--netflix-color);
+    border-bottom: 2px solid var(--moviedb-color);
     background-color: rgb(0, 0, 0);
     color: #FFF;
     font-size: larger;
