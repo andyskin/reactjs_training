@@ -14,19 +14,15 @@ const MovieInfo = (props) => {
             </div>
             <div className="movieInfo__info">
                 <p>
-                    <span className="movieInfo__title">{movie.show_title}</span>
-                    <span className="movieInfo__rating">{movie.vote_average}</span>
+                    <span className="movieInfo__title">{movie.title}</span>
+                    <span className="movieInfo__rating">{movie.rating}</span>
+                    <span> [{movie.votes}] votes</span>
                 </p>
-                <span className="movieInfo__genre">{movie.category}</span>
+                <span className="movieInfo__genre">{movie.genre}</span>
                 <p>
-                    <span className="movieInfo__year">{movie.release_year}</span>
-                    <span className="movieInfo__duration">154 min</span>
+                    <span className="movieInfo__year">{movie.year}</span>
                 </p>
-                <p className="movieInfo__description">{movie.summary}</p>
-            </div>
-            <div className="movieInfo__people">
-                <p className="movieInfo__director">Director: {movie.director}</p>
-                <p className="movieInfo__cast">Cast: {movie.show_cast}</p>
+                <p className="movieInfo__description">{movie.description}</p>
             </div>
         </div>
     );

@@ -34,7 +34,8 @@ const processResponse = data => {
             poster: data[i].poster_path ? `https://image.tmdb.org/t/p/w640${data[i].poster_path}`
                 : 'http://www.cineart.be/Documents/Document/Large/20120510153359-NoPosterAvailable.jpg',
             rating: data[i].vote_average,
-            genre: genre,
+            votes: data[i].vote_count,
+            genre: genre.charAt(0).toUpperCase() + genre.slice(1),
             description: data[i].overview,
             year: undefined,
         };
