@@ -5,13 +5,13 @@ import styles from './movie.css';
 
 const Movie = (props) => {
     const movieClass = classNames('movie', props.className);
-    
+    const { info } = props;
+
     return (
-        <Link to={`/film/${props.info.title}`} className={movieClass}>
-            <img src={props.info.poster} className="movie__poster" />
-            <span className="movie__title">{props.info.title}</span>
-            <span className="movie__genre">{props.info.genre}</span>
-            <span className="movie__year">{props.info.year}</span>
+        <Link to={`/film/${info.title}`} className={movieClass} onClick={() => {props.pickMovie(info)}}>
+            <img src={info.poster} className="movie__poster" />
+            <span className="movie__title">{info.title}</span>
+            <span className="movie__year">{info.year}</span>
         </Link>
     );
 }

@@ -3,15 +3,16 @@
     display: grid;
     align-items: center;
     background-image: linear-gradient(
-        rgba(0, 0, 0, 0.7), 
-        rgba(0, 0, 0, 0.7)
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5)
     ), url('./img/header.jpg');
     background-position-y: 22%;
     color: var(--main-color);
 }
 
 .mainHeader {
-    height: 175px;
+    height: 235px;
+    padding: 0;
     grid-template-rows: 1fr 2fr;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: ". logo ."
@@ -40,6 +41,7 @@
 @media all and (max-width: 620px) {
     .mainHeader {
         height: 150px;
+        padding: 20px 0;
         grid-template-rows: 2fr 3fr;
         grid-template-columns: 0.5fr 4fr 4fr 0.5fr;
         grid-template-areas: ". logo tagline ."

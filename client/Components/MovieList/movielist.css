@@ -6,7 +6,7 @@
 }
 
 .movieList__movie {
-    margin: 20px;
+    margin: 30px;
 }
 
 @media all and (max-width: 620px) {

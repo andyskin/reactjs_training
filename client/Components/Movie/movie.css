@@ -10,8 +10,6 @@
 
 .movie__poster {
     margin-bottom: 20px;
-    height: 400px;
-    width: 285px;
     grid-area: poster;
 }
 
@@ -19,6 +17,7 @@
     margin-bottom: 10px;
     grid-area: title;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .movie__genre {

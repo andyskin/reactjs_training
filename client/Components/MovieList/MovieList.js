@@ -1,47 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setCurrentMovie } from '../../actions';
 import classNames from 'classNames';
 import Movie from '../Movie/Movie';
 import styles from './movielist.css';
 
 const MovieList = (props) => {
     const listClass = classNames('movieList', props.className);
-
-    const movies = [
-        {
-            id: 1,
-            poster: 'http:\/\/netflixroulette.net\/api\/posters\/70230640.jpg',
-            title: 'Django Unchained',
-            genre: 'Drama',
-            year: 2012
-        },
-        {
-            id: 2,
-            poster: 'http:\/\/netflixroulette.net\/api\/posters\/902003.jpg',
-            title: 'Reservoir Dogs',
-            genre: 'Independent Movies',
-            year: 1992
-        },
-        {
-            id: 3,
-            poster: 'http:\/\/netflixroulette.net\/api\/posters\/880640.jpg',
-            title: 'Pulp Fiction',
-            genre: 'Oscar-winning Movies',
-            year: 1994
-        }
-    ];
-
-    const moviesObjs = [];
-    for (let movie of movies) {
-        moviesObjs.push(
-            <Movie info={movie} key={movie.id} className="movieList__movie" />
-        );
-    }
+    let { movies } = props;
 
     return (
         <div className={listClass}>
-            {moviesObjs}
+            {movies.map(movie => (
+                <Movie info={movie} key={movie.id} className="movieList__movie" pickMovie={props.pickMovie} />
+            ))}
         </div>
     );
 }
 
-export default MovieList;
+const mapStateToProps = (state) => {
+    return {
+        movies: state.movies.items
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        pickMovie: (movie) => {
+            window.scrollTo(0,0);
+            dispatch(setCurrentMovie(movie))
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MovieList);

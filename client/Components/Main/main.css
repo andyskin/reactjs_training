@@ -1,4 +1,7 @@
+.main {
+    background-color: #f4f4f4;
+}
+
 .main__movieList {
-    margin: 20px;
     height: 100%;
 }

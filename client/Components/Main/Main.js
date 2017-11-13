@@ -10,7 +10,7 @@ const Main = (props) => {
     return (
         <main className={mainClass}>
             <InfoBar className="main__info" />
-            <MovieList className="main__movieList" />
+            <MovieList className="main__movieList" movies={props.movies} setCurrentMovie={props.setCurrentMovie} dispatch={props.dispatch}/>
         </main>
     );
 }

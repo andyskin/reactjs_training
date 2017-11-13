@@ -21,7 +21,14 @@ const config = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
-                    presets: ['es2015', 'react']
+                    presets: [
+                        ['env', {
+                            'browsers': ['last 2 versions', 'chrome >= 60'],
+                            'debug': true
+                        }],
+                        'stage-0',
+                        'react'
+                    ]
                 }
             },
             {

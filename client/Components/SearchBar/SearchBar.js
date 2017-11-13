@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, withRouter, Redirect } from 'react-router-dom';
+import { fetchMovies } from '../../actions';
 import classNames from 'classNames';
 import RadioGroup from '../RadioGroup/RadioGroup';
 import Button from '../Button/Button';
@@ -8,7 +10,7 @@ import styles from './searchbar.css';
 class SearchBar extends React.Component {
     constructor(props) {
         super(props);
-        this.radioButtons = ['title', 'director'];
+        this.radioButtons = ['movie', 'tv', 'multi'];
 
         this.state = {
             input: '',
@@ -26,15 +28,19 @@ class SearchBar extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const query = `${this.state.radio}=${this.state.input}`;
-        this.props.history.push(`/search/${query}`);
+        const data = {
+            genre: this.state.radio,
+            title: this.state.input
+        };
+        this.props.fetchMovies(data);
+        this.props.history.push(`/search/${this.state.radio}?title=${this.state.input}`);
     }
 
     handleRadio(value) {
         this.setState({ radio: value });
     }
 
-    render() {
+    render() {     
         const formClass = classNames('searchBar', this.props.className);
          
         return(
@@ -50,4 +56,23 @@ class SearchBar extends React.Component {
     }
 }
 
-export default withRouter(SearchBar);
+const mapStateToProps = (state) => {
+    return {
+        currentMovie: state.movies.currentMovie
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchMovies: (query) => {
+            dispatch(fetchMovies(query))
+        }
+    }
+}
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(SearchBar)
+);
